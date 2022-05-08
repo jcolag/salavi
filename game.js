@@ -3,6 +3,7 @@ const pieces = [
   '♔', '♕', '♖', '♗', '♘', '♙',
   '♚', '♛', '♜', '♝', '♞', '♟︎'
 ];
+const dropTargets = [];
 
 window.addEventListener('load', (e) => {
   const roll = document.getElementById('roll');
@@ -24,7 +25,11 @@ function rollDie() {
   const roll = Math.trunc(Math.random() * 6) + 1;
   const button = document.getElementById('roll');
   const p1 = document.getElementById('player-1');
+  const sqid = p1.parentElement.id.replace(/^[0a-z]*/g, '');
+  const square = sqid.length === 0 ? 0 : Number(sqid);
+  const id = 'sq' + `000${square + roll}`.slice(-3);
 
+  dropTargets.length = 0;
   tray.innerHTML = `<b>${faces[roll - 1]}</b>`;
   p1.draggable = true;
   p1.addEventListener('dragstart', dragPiece);
@@ -39,12 +44,19 @@ function dragPiece(event) {
   dragged = event.target;
 }
 function dropPiece(event) {
+  const roll = document.getElementById('roll');
+  const p1 = document.getElementById('player-1');
   var target = event.target;
+  if (dropTargets.indexOf(target.id) < 0) {
+    return;
+  }
 
   if (target.className.indexOf('game-piece') >= 0) {
     target = target.parentElement;
   }
 
+  p1.draggable = false;
+  roll.disabled = false;
   event.preventDefault();
   dragged.parentNode.removeChild(dragged);
   target.appendChild(dragged);
