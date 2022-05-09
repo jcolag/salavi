@@ -17,6 +17,7 @@ td {
   border-radius: 1em;
 }
 
+#dice-tray {
   font-size: 5em;
   height: 1em;
   margin: auto;
@@ -35,3 +36,6 @@ td {
   width: 1em !important;
 }
 
+.highlight-box {
+  box-shadow: green 0 0 1em;
+}

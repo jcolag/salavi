@@ -28,15 +28,17 @@ function rollDie() {
   const sqid = p1.parentElement.id.replace(/^[0a-z]*/g, '');
   const square = sqid.length === 0 ? 0 : Number(sqid);
   const id = 'sq' + `000${square + roll}`.slice(-3);
+  const target = document.getElementById(id);
 
   dropTargets.length = 0;
   tray.innerHTML = `<b>${faces[roll - 1]}</b>`;
   p1.draggable = true;
   p1.addEventListener('dragstart', dragPiece);
 
-  if (document.getElementById(id)) {
+  if (target) {
     button.disabled = true;
     dropTargets.push(id);
+    target.classList.add('highlight-box');
   }
 }
 
@@ -60,6 +62,7 @@ function dropPiece(event) {
   event.preventDefault();
   dragged.parentNode.removeChild(dragged);
   target.appendChild(dragged);
+  target.classList.remove('highlight-box');
   dragged = null;
 }
 function ignore(event) {
