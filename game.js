@@ -64,6 +64,14 @@ function dropPiece(event) {
   target.appendChild(dragged);
   target.classList.remove('highlight-box');
   dragged = null;
+
+  if (target.attributes['jump']) {
+    const id = target.attributes['jump'].value.toString();
+    const goto = document.getElementById(id);
+
+    p1.parentNode.removeChild(p1);
+    goto.appendChild(p1);
+  }
 }
 function ignore(event) {
   event.preventDefault();
