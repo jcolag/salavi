@@ -54,7 +54,7 @@ for (let row = 0; row < size; row++) {
     }
 
     id = `000${number}`.slice(-3);
-    elements.push(`<td class="square" draagable="false" id="sq${id}" ` +
+    elements.push(`<td class="square" dragable="false" id="sq${id}" ` +
       `${dest}style="height: ${wd}vw; width: ${wd}vw;"></td>`);
     number += dir;
   }
