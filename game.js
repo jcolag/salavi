@@ -4,6 +4,7 @@ const pieces = [
   '♚', '♛', '♜', '♝', '♞', '♟︎'
 ];
 const dropTargets = [];
+let dragged = null;
 
 window.addEventListener('load', (e) => {
   const roll = document.getElementById('roll');
@@ -47,7 +48,6 @@ function dragPiece(event) {
 }
 function dropPiece(event) {
   const roll = document.getElementById('roll');
-  const p1 = document.getElementById('player-1');
   var target = event.target;
   if (dropTargets.indexOf(target.id) < 0) {
     return;
@@ -57,22 +57,20 @@ function dropPiece(event) {
     target = target.parentElement;
   }
 
-  p1.draggable = false;
   roll.disabled = false;
   event.preventDefault();
+  dragged.draggable = false;
   dragged.parentNode.removeChild(dragged);
   target.appendChild(dragged);
   target.classList.remove('highlight-box');
-  dragged = null;
 
   if (target.attributes['jump']) {
     const id = target.attributes['jump'].value.toString();
     const goto = document.getElementById(id);
 
-    p1.parentNode.removeChild(p1);
-    goto.appendChild(p1);
+    dragged.parentNode.removeChild(dragged);
+    goto.appendChild(dragged);
   }
-}
-function ignore(event) {
-  event.preventDefault();
+
+  dragged = null;
 }
