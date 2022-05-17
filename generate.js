@@ -5,6 +5,8 @@ const head = '<!DOCTYPE html><html lang="en"><head>' +
   '<meta charset="utf-8"><title>Snakes and Ladders</title>' +
   '<link rel="stylesheet" href="style.css">' +
   '<script type="text/javascript" src="game.js"></script>' +
+  '<script type="text/javascript" ' +
+  'src="anseki-leader-line-0d3a372/leader-line.min.js"></script>' +
   '</head></body><table>';
 const foot = '</table><br><button id="roll">Roll Die</button>' +
   '<br><div id="dice-tray">&nbsp;</div></body></html>';
