@@ -4,11 +4,17 @@ const pieces = [
   '♚', '♛', '♜', '♝', '♞', '♟︎'
 ];
 const dropTargets = [];
+const arrows = [];
 let dragged = null;
 
 window.addEventListener('load', (e) => {
   const roll = document.getElementById('roll');
   const start = document.getElementById('sq000');
+  const begins = Array.from(
+    document
+      .getElementsByClassName('square')
+    )
+    .filter((s) => s.attributes['jump']);
 
   document.addEventListener('drag', () => {}, false);
   document.addEventListener('dragover', (e) => e.preventDefault(), false);
@@ -19,6 +25,27 @@ window.addEventListener('load', (e) => {
   start.innerHTML = '<span class="game-piece" id="player-1">' +
     pieces[Math.trunc(Math.random() * pieces.length)] +
     '</span>';
+  begins.forEach((b) => {
+    const up = b.id < b.attributes['jump'].value
+    arrows.push(
+      new LeaderLine(
+        LeaderLine.pointAnchor(
+          b,
+          {
+            x: '50%',
+            y: '50%',
+          },
+        ),
+        LeaderLine.pointAnchor(
+          document.getElementById(b.attributes['jump'].value),
+          {
+            x: '50%',
+            y: '50%',
+          }
+        )
+      )
+    );
+  });
 });
 
 function rollDie() {
