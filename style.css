@@ -39,3 +39,7 @@ td {
 .highlight-box {
   box-shadow: green 0 0 1em;
 }
+
+.leader-line {
+  z-index: -10;
+}
