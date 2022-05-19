@@ -27,6 +27,20 @@ window.addEventListener('load', (e) => {
     '</span>';
   begins.forEach((b) => {
     const up = b.id < b.attributes['jump'].value
+    const style = {
+      color: up ? 'transparent' : 'green',
+      dash: {
+        animation: true,
+      },
+      dropShadow: up,
+      endPlug: up ? 'square' : 'arrow3',
+      endPlugColor: up ? 'brown' : 'green',
+      endPlugOutline: !up,
+      endPlugOutlineColor: up ? 'brown' : 'transparent',
+      outline: up,
+      outlineColor: up ? 'brown' : 'transparent',
+      path: up ? 'straight' : 'fluid',
+    };
     arrows.push(
       new LeaderLine(
         LeaderLine.pointAnchor(
@@ -42,7 +56,8 @@ window.addEventListener('load', (e) => {
             x: '50%',
             y: '50%',
           }
-        )
+        ),
+        style
       )
     );
   });
