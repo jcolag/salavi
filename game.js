@@ -88,6 +88,7 @@ function rollDie() {
 function dragPiece(event) {
   dragged = event.target;
 }
+
 function dropPiece(event) {
   const roll = document.getElementById('roll');
   var target = event.target;
@@ -115,4 +116,32 @@ function dropPiece(event) {
   }
 
   dragged = null;
+}
+
+function changeArrow(fromId) {
+  const sq = document.getElementById(fromId);
+  const connected = arrows.filter((a) => a.start === sq || a.end === sq);
+  const arrow = connected[Math.floor(Math.random() * connected.length)];
+  const squares = Array.from(document.getElementsByClassName('square'));
+  const target = squares[
+    Math.floor(Math.random() * squares.length)
+  ];
+
+  if (arrow.start === sq) {
+    arrow.start = LeaderLine.pointAnchor(
+      target,
+      {
+        x: '50%',
+        y: '50%',
+      }
+    );
+  } else {
+    arrow.end = LeaderLine.pointAnchor(
+      target,
+      {
+        x: '50%',
+        y: '50%',
+      }
+    );
+  }
 }
