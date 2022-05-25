@@ -5,6 +5,7 @@ const pieces = [
 ];
 const dropTargets = [];
 const arrows = [];
+const arrowMap = [];
 let dragged = null;
 
 let flipper = setInterval(
@@ -89,6 +90,11 @@ window.addEventListener('load', (e) => {
         style
       )
     );
+    arrowMap.push({
+      arrow: arrows.slice(-1)[0],
+      from: b,
+      to: document.getElementById(b.attributes['jump'].value),
+    });
   });
 });
 
