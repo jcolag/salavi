@@ -163,20 +163,24 @@ function changeArrow(fromId) {
   ];
 
   if (arrow.start === sq) {
-    arrow.start = LeaderLine.pointAnchor(
-      target,
-      {
-        x: '50%',
-        y: '50%',
-      }
-    );
+    map.arrow.setOptions({
+      start: LeaderLine.pointAnchor(
+        target,
+        {
+          x: '50%',
+          y: '50%',
+        }
+      )
+    });
   } else {
-    arrow.end = LeaderLine.pointAnchor(
-      target,
-      {
-        x: '50%',
-        y: '50%',
-      }
-    );
+    map.arrow.setOptions({
+      end: LeaderLine.pointAnchor(
+        target,
+        {
+          x: '50%',
+          y: '50%',
+        }
+      )
+    });
   }
 }
