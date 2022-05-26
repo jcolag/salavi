@@ -155,14 +155,19 @@ function dropPiece(event) {
 
 function changeArrow(fromId) {
   const sq = document.getElementById(fromId);
-  const connected = arrows.filter((a) => a.start === sq || a.end === sq);
-  const arrow = connected[Math.floor(Math.random() * connected.length)];
+  const connected = arrowMap.filter((a) => a.from === sq || a.to === sq);
+
+  if (connected.length === 0) {
+    return;
+  }
+
+  const map = connected[Math.floor(Math.random() * connected.length)];
   const squares = Array.from(document.getElementsByClassName('square'));
   const target = squares[
     Math.floor(Math.random() * squares.length)
   ];
 
-  if (arrow.start === sq) {
+  if (map.from === sq) {
     map.arrow.setOptions({
       start: LeaderLine.pointAnchor(
         target,
