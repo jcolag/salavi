@@ -10,29 +10,6 @@ let dragged = null;
 
 let flipper = setInterval(
   () => {
-    const arrow = arrows[Math.floor(Math.random() * arrows.length)];
-    const squares = Array.from(document.getElementsByClassName('square'));
-    const target = squares[
-      Math.floor(Math.random() * squares.length)
-    ];
-
-    if (Math.random() < 0.5) {
-      arrow.start = LeaderLine.pointAnchor(
-        target,
-        {
-          x: '50%',
-          y: '50%',
-        }
-      );
-    } else {
-      arrow.end = LeaderLine.pointAnchor(
-        target,
-        {
-          x: '50%',
-          y: '50%',
-        }
-      );
-    }
   },
   5000
 );
