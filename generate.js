@@ -1,14 +1,15 @@
 const fs = require('fs');
 
 const head = '<!DOCTYPE html><html lang="en"><head>' +
-  '<meta charset="utf-8"><title>Snakes and Ladders</title>' +
+  '<meta charset="utf-8"><title>Salavi</title>' +
   '<link rel="stylesheet" href="style.css">' +
   '<script type="text/javascript" src="play.js"></script>' +
   '<script type="text/javascript" ' +
   'src="anseki-leader-line-0d3a372/leader-line.min.js"></script>' +
-  '</head></body><table id="game-board">';
+  '</head></body><h1>Salavi</h1><table id="game-board">';
 const foot = '</table><br><button id="roll">Roll Die</button>' +
-  '<br><div id="dice-tray">&nbsp;</div></body></html>';
+  '<br><div id="dice-tray">&nbsp;</div>' +
+  '<img id="owl" src="./owl.png"></body></html>';
 const elements = [];
 const channels = [];
 let size = 4;
