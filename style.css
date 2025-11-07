@@ -30,6 +30,12 @@ td {
   width: 1em;
 }
 
+#owl {
+  position: absolute;
+  transition: transform 1s ease;
+  z-index: -1;
+}
+
 .game-piece {
   background-color: transparent !important;
   border: 1px solid light-dark(black, white);
@@ -37,9 +43,10 @@ td {
   bottom: 10px !important;
   cursor: default;
   font-size: 2em;
-  height: 1em !important;
+  height: 1.5em !important;
+  margin: auto;
   pointer-events: all;
-  width: 1em !important;
+  width: 1.5em !important;
 }
 
 .highlight-box {
