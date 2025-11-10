@@ -7,6 +7,7 @@ const dropTargets = [];
 const arrows = [];
 const arrowMap = [];
 let dragged = null;
+let owlCell = 0;
 
 let flipper = setInterval(
   () => {
@@ -17,21 +18,27 @@ let flipper = setInterval(
 window.addEventListener('load', (e) => {
   const roll = document.getElementById('roll');
   const start = document.getElementById('sq000');
+  const sprite = document.getElementById('owl');
+  const cells = document.querySelectorAll('td');
+  const nCells = cells.length;
+  const target = cells[Math.trunc(Math.random() * nCells)];
+  const targetRect = target.getBoundingClientRect();
   const begins = Array.from(
     document
       .getElementsByClassName('square')
     )
     .filter((s) => s.attributes['jump']);
 
+  owlCell = target.id;
   document.addEventListener('drag', () => {}, false);
   document.addEventListener('dragover', (e) => e.preventDefault(), false);
   document.addEventListener('drop', dropPiece);
   roll.addEventListener('click', (e) => {
     rollDie();
   });
-  start.innerHTML = '<span class="game-piece" id="player-1">' +
-    pieces[Math.trunc(Math.random() * pieces.length)] +
-    '</span>';
+  piece = pieces[Math.trunc(Math.random() * pieces.length)];
+  start.innerHTML = '<div class="game-piece" id="player-1">' +
+    piece + '</div>';
   begins.forEach((b) => {
     const up = b.id < b.attributes['jump'].value
     const style = {
