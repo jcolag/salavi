@@ -80,6 +80,16 @@ window.addEventListener('load', (e) => {
       to: document.getElementById(b.attributes['jump'].value),
     });
   });
+
+  sprite.style.left = `${targetRect.left + 10}px`;
+  sprite.style.top = `${targetRect.top + 15}px`;
+  sprite.style.maxWidth = `${targetRect.width - 10}px`;
+
+  if (target.cellIndex > target.parentElement.cells.length / 2 - 1) {
+    sprite.classList.add('reverse');
+  } else {
+    sprite.classList.remove('reverse');
+  }
 });
 
 function rollDie() {
