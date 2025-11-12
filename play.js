@@ -183,3 +183,34 @@ function changeArrow(fromId) {
     });
   }
 }
+
+function jumpSprite(spriteName, fromCell, toCell, after = null, duration = 1000) {
+  const sprite = document.getElementById(spriteName);
+  const startRect = fromCell.getBoundingClientRect();
+  const endRect = toCell.getBoundingClientRect();
+  const startX = startRect.left;
+  const startY = startRect.top;
+  const endX = endRect.left;
+  const endY = endRect.top;
+
+  const peakHeight = -100;
+  const startTime = performance.now();
+
+  function animate(now) {
+    const t = Math.min((now - startTime) / duration, 1);
+    const progress = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    const x = startX + (endX - startX) * t;
+    const y = startY + (endY - startY) * t + peakHeight * (1 - 4 * (t - 0.5) ** 2);
+
+    sprite.style.left = `${x + 10}px`;
+    sprite.style.top = `${y + 15}px`;
+
+    if (t < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+  fight();
+}
+
