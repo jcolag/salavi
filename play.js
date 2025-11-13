@@ -145,6 +145,22 @@ function dropPiece(event) {
   }
 
   dragged = null;
+function moveOwl() {
+  const owl = document.getElementById('owl');
+  const cells = document.querySelectorAll('td');
+  const nCells = cells.length;
+  const jumpTo = cells[Math.trunc(Math.random() * nCells)];
+  const from = owlCell;
+  const row = jumpTo.parentElement;
+
+  owlCell = jumpTo.id;
+  jumpSprite('owl', document.getElementById(from), jumpTo);
+
+  if (jumpTo.cellIndex > row.cells.length / 2 - 1) {
+    owl.classList.add('reverse');
+  } else {
+    owl.classList.remove('reverse');
+  }
 }
 
 function changeArrow(fromId) {
