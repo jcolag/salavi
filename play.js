@@ -111,6 +111,8 @@ function rollDie() {
     button.disabled = true;
     dropTargets.push(id);
     target.classList.add('highlight-box');
+  } else {
+    moveOwl();
   }
 }
 
@@ -145,6 +147,9 @@ function dropPiece(event) {
   }
 
   dragged = null;
+  moveOwl();
+}
+
 function moveOwl() {
   const owl = document.getElementById('owl');
   const cells = document.querySelectorAll('td');
