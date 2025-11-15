@@ -168,6 +168,18 @@ function moveOwl() {
   }
 }
 
+function fight() {
+  const player = document.getElementById('player-1');
+  const home = document.getElementById('sq000');
+
+  if (player.parentElement.id === owlCell) {
+    player.innerHTML = pow;
+    player.classList.add('spin');
+    player.parentElement.removeChild(player);
+    home.appendChild(player);
+  }
+}
+
 function changeArrow(fromId) {
   const sq = document.getElementById(fromId);
   const connected = arrowMap.filter((a) => a.from === sq || a.to === sq);
