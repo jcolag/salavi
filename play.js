@@ -3,11 +3,13 @@ const pieces = [
   '♔', '♕', '♖', '♗', '♘', '♙',
   '♚', '♛', '♜', '♝', '♞', '♟︎'
 ];
+const pow = '💥';
 const dropTargets = [];
 const arrows = [];
 const arrowMap = [];
 let dragged = null;
 let owlCell = 0;
+let piece = null;
 
 let flipper = setInterval(
   () => {
@@ -101,6 +103,10 @@ function rollDie() {
   const square = sqid.length === 0 ? 0 : Number(sqid);
   const id = 'sq' + `000${square + roll}`.slice(-3);
   const target = document.getElementById(id);
+  const player = document.getElementById('player-1');
+
+  player.innerHTML = piece;
+  player.classList.remove('spin');
 
   dropTargets.length = 0;
   tray.innerHTML = `<b>${faces[roll - 1]}</b>`;
