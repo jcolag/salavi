@@ -56,3 +56,23 @@ td {
 .leader-line {
   z-index: -10;
 }
+
+.reverse {
+  transform: scale(-1, 1);
+}
+
+.spin {
+  animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
