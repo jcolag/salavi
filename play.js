@@ -18,6 +18,14 @@ let flipper = setInterval(
 );
 
 window.addEventListener('load', (e) => {
+  createBoard();
+  startGame();
+});
+
+function createBoard() {
+}
+
+function startGame() {
   const roll = document.getElementById('roll');
   const start = document.getElementById('sq000');
   const sprite = document.getElementById('owl');
@@ -92,7 +100,7 @@ window.addEventListener('load', (e) => {
   } else {
     sprite.classList.remove('reverse');
   }
-});
+}
 
 function rollDie() {
   const tray = document.getElementById('dice-tray');
