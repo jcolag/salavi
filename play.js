@@ -23,6 +23,11 @@ window.addEventListener('load', (e) => {
 });
 
 function createBoard() {
+  const squares = document.getElementsByClassName('square');
+
+  if (squares.length > 0) {
+    return;
+  }
 }
 
 function startGame() {
