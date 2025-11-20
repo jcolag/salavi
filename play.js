@@ -28,6 +28,27 @@ function createBoard() {
   if (squares.length > 0) {
     return;
   }
+
+  const elements = [];
+  const channels = [];
+  let size = 4;
+  const wd = 50 / size;
+
+  for (let chan = 0; chan < size; chan++) {
+    let startY = Math.floor(Math.random() * size);
+
+    channels.push({
+      from: {
+        x: Math.floor(Math.random() * size),
+        y: startY,
+      },
+      to: {
+        x: Math.floor(Math.random() * size),
+        y: Math.floor(Math.random() * size / 2)
+          + (startY > size / 2 ? 0 : (size / 2)),
+      },
+    });
+  }
 }
 
 function startGame() {
