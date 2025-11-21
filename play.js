@@ -24,6 +24,7 @@ window.addEventListener('load', (e) => {
 
 function createBoard() {
   const squares = document.getElementsByClassName('square');
+  const rows = [];
 
   if (squares.length > 0) {
     return;
@@ -49,6 +50,17 @@ function createBoard() {
       },
     });
   }
+
+  for (let row = 0; row < size; row++) {
+    const cells = [];
+    const board = document.getElementById('game-board');
+    const dir = row % 2 === 1 ? 1 : -1;
+    const rowClass = row % 2 === 0 ? 'rightward' : 'leftward';
+    const r = document.createElement('tr');
+    let number = row % 2 === 1 ? row * size : (row + 1) * size - 1;
+
+  }
+
 }
 
 function startGame() {
