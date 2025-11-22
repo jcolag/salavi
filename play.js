@@ -73,6 +73,8 @@ function createBoard() {
       number += dir;
       r.insertBefore(sq, r.firstChild);
     }
+
+    board.insertBefore(r, board.firstChild);
   }
 
 }
