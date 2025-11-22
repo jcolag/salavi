@@ -59,6 +59,20 @@ function createBoard() {
     const r = document.createElement('tr');
     let number = row % 2 === 1 ? row * size : (row + 1) * size - 1;
 
+    r.classList.add('rowClass');
+    for (let col = 0; col < size; col++) {
+      const sq = document.createElement('td');
+      const id = `000${number}`.slice(-3);
+      let dest = '';
+
+      sq.classList.add('square');
+      sq.dragable = false;
+      sq.id = `sq${id}`;
+      sq.style.height = `${wd}vw`;
+      sq.style.width = `${wd}vw`;
+      number += dir;
+      r.insertBefore(sq, r.firstChild);
+    }
   }
 
 }
