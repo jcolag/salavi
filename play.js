@@ -84,6 +84,7 @@ function startGame() {
   const start = document.getElementById('sq000');
   const sprite = document.getElementById('owl');
   const cells = document.querySelectorAll('td');
+  const token = document.createElement('div');
   const nCells = cells.length;
   const target = cells[Math.trunc(Math.random() * nCells)];
   const targetRect = target.getBoundingClientRect();
@@ -101,8 +102,13 @@ function startGame() {
     rollDie();
   });
   piece = pieces[Math.trunc(Math.random() * pieces.length)];
-  start.innerHTML = '<div class="game-piece" id="player-1">' +
-    piece + '</div>';
+
+  const player = document.createTextNode(piece);
+
+  token.classList.add('game-piece');
+  token.id = 'player-1';
+  token.insertBefore(player, token.firstChild);
+  start.insertBefore(token, start.firstChild);
   begins.forEach((b) => {
     const up = b.id < b.attributes['jump'].value
     const style = {
