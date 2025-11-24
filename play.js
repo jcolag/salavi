@@ -65,6 +65,16 @@ function createBoard() {
       const id = `000${number}`.slice(-3);
       let dest = '';
 
+      for (let i = 0; i < channels.length; i++) {
+        const ch = channels[i];
+
+        if (number === ch.from.y * size + ch.from.x) {
+          const to = `000${ch.to.y * size + ch.to.x}`.slice(-3);
+
+          dest = `sq${to}`;
+        }
+      }
+
       sq.classList.add('square');
       sq.dragable = false;
       sq.id = `sq${id}`;
