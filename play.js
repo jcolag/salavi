@@ -80,13 +80,17 @@ function createBoard() {
       sq.id = `sq${id}`;
       sq.style.height = `${wd}vw`;
       sq.style.width = `${wd}vw`;
+
+      if (dest.length > 0) {
+        sq.setAttribute('jump', dest);
+      }
+
       number += dir;
       r.insertBefore(sq, r.firstChild);
     }
 
     board.insertBefore(r, board.firstChild);
   }
-
 }
 
 function startGame() {
