@@ -5,6 +5,11 @@
 body {
   background-color: light-dark(white, black);
   color: light-dark(black, white);
+  display: flex;
+  flex-direction: row;
+  font-size: 1.25em;
+  justify-content: center;
+  overflow: hidden;
   text-align: center;
   user-select: none;
 }
