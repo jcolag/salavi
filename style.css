@@ -35,10 +35,26 @@ td {
   width: 1em;
 }
 
+#game {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
 #owl {
   position: absolute;
   transition: transform 1s ease;
   z-index: -1;
+}
+
+#right-panel {
+  height: calc(97.5vh - 3em);
+  overflow-y: auto;
+  vertical-align: top;
+}
+
+.blur {
+  filter: blur(10px) saturate(33%);
 }
 
 .game-piece {
