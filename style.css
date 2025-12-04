@@ -28,6 +28,37 @@ td {
   border-radius: 1em;
 }
 
+#about-modal,#config-modal,#stats-modal {
+  font-weight: normal;
+  overflow-y: scroll;
+  padding-top: 0;
+}
+
+#about-modal hr,#config-modal hr,#stats-modal hr {
+  width: 20vw;
+}
+
+#about-modal h2,#about-modal p {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  width: 40vw;
+}
+
+#admin-panel {
+  bottom: 0;
+  height: 3em;
+  position: absolute;
+  right: 0;
+}
+
+#config-modal div,#config-modal h1,#config-modal h2,#config-modal > p {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  width: 40vw;
+}
+
 #dice-tray {
   font-size: 5em;
   height: 1em;
