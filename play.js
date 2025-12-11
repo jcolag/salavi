@@ -10,6 +10,7 @@ const arrowMap = [];
 let dragged = null;
 let owlCell = 0;
 let piece = null;
+let size;
 
 let flipper = setInterval(
   () => {
@@ -18,6 +19,12 @@ let flipper = setInterval(
 );
 
 window.addEventListener('load', (e) => {
+
+  size = localStorage.getItem('salaviBoardSize');
+
+  if (!size) {
+    size = 4;
+  }
   createBoard();
   startGame();
 });
@@ -32,7 +39,6 @@ function createBoard() {
 
   const elements = [];
   const channels = [];
-  let size = 4;
   const wd = 50 / size;
 
   for (let chan = 0; chan < size; chan++) {
