@@ -341,3 +341,18 @@ function jumpSprite(spriteName, fromCell, toCell, after = null, duration = 1000)
   fight();
 }
 
+function changeBoardSize(widget) {
+  const board = document.getElementById('game-board');
+  const oldSize = size;
+
+  size = widget.value;
+  localStorage.setItem('salaviBoardSize', size);
+  if (oldSize !== size) {
+    while (board.firstChild) {
+      board.removeChild(board.lastChild);
+    }
+
+    createBoard();
+    startGame();
+  }
+}
