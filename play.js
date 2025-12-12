@@ -19,12 +19,34 @@ let flipper = setInterval(
 );
 
 window.addEventListener('load', (e) => {
+  const about = document.getElementById('about-modal');
+  const config = document.getElementById('config-modal');
+  const stats = document.getElementById('stats-modal');
+  const closeAbout = document.getElementById('close-about');
+  const closeConfig = document.getElementById('close-config');
+  const closeStats = document.getElementById('close-stats');
 
   size = localStorage.getItem('salaviBoardSize');
 
   if (!size) {
     size = 4;
   }
+  closeAbout.addEventListener(
+    'click', () => {
+    game.classList.remove('blur');
+    about.close();
+  });
+  closeConfig.addEventListener(
+    'click', () => {
+    game.classList.remove('blur');
+    config.close();
+  });
+  closeStats.addEventListener(
+    'click', () => {
+    game.classList.remove('blur');
+    stats.close();
+  });
+
   createBoard();
   startGame();
 });
