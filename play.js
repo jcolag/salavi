@@ -22,8 +22,11 @@ window.addEventListener('load', (e) => {
   const about = document.getElementById('about-modal');
   const config = document.getElementById('config-modal');
   const stats = document.getElementById('stats-modal');
+  const openAbout = document.getElementById('help');
   const closeAbout = document.getElementById('close-about');
+  const openConfig = document.getElementById('config');
   const closeConfig = document.getElementById('close-config');
+  const openStats = document.getElementById('stats');
   const closeStats = document.getElementById('close-stats');
 
   size = localStorage.getItem('salaviBoardSize');
@@ -31,16 +34,37 @@ window.addEventListener('load', (e) => {
   if (!size) {
     size = 4;
   }
+
+  openAbout.addEventListener(
+    'click', () => {
+    game.classList.add('blur');
+    about.showModal();
+  });
   closeAbout.addEventListener(
     'click', () => {
     game.classList.remove('blur');
     about.close();
+  });
+  openConfig.addEventListener(
+    'click', () => {
+    const sizer = document.getElementById('board-size');
+
+    sizer.value = size;
+    game.classList.add('blur');
+    config.showModal();
   });
   closeConfig.addEventListener(
     'click', () => {
     game.classList.remove('blur');
     config.close();
   });
+  openStats.addEventListener(
+    'click', () => {
+      populateStats();
+      game.classList.add('blur');
+      stats.showModal();
+    }
+  );
   closeStats.addEventListener(
     'click', () => {
     game.classList.remove('blur');
