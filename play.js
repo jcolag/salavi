@@ -28,8 +28,10 @@ window.addEventListener('load', (e) => {
   const closeConfig = document.getElementById('close-config');
   const openStats = document.getElementById('stats');
   const closeStats = document.getElementById('close-stats');
+  const games = localStorage.getItem('gamesPlayed') ?? 0;
 
   size = localStorage.getItem('salaviBoardSize');
+  localStorage.setItem('gamesPlayed', Number(games) + 1);
 
   if (!size) {
     size = 4;
