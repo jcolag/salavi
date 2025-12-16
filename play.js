@@ -77,6 +77,12 @@ window.addEventListener('load', (e) => {
   startGame();
 });
 
+function removeAllChildren(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.lastChild);
+  }
+}
+
 function createBoard() {
   const squares = document.getElementsByClassName('square');
   const rows = [];
