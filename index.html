@@ -61,7 +61,12 @@
     <div class="option-block">
       <div>
         <p>
-          <input id="board-size" onchange="changeBoardSize(this)" type="number">
+          <input
+            id="board-size"
+            min="2"
+            onchange="changeBoardSize(this)"
+            type="number"
+          >
           <label for="board-size">Set Board Size</label>
         </p>
       </div>
