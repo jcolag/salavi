@@ -87,6 +87,13 @@ function createBoard() {
   const squares = document.getElementsByClassName('square');
   const rows = [];
 
+  arrows.forEach((a) => {
+    try {
+      a.remove();
+    } catch(e) {
+    }
+  });
+
   if (squares.length > 0) {
     return;
   }
