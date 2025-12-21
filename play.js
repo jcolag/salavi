@@ -57,8 +57,16 @@ window.addEventListener('load', (e) => {
   });
   closeConfig.addEventListener(
     'click', () => {
+    const board = document.getElementById('game-board');
+
     game.classList.remove('blur');
     config.close();
+    size = localStorage.getItem('salaviBoardSize');
+    if (oldSize !== size) {
+      removeAllChildren(board);
+      createBoard();
+      startGame();
+    }
   });
   openStats.addEventListener(
     'click', () => {
