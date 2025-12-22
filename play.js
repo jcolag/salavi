@@ -285,7 +285,10 @@ function dragPiece(event) {
 
 function dropPiece(event) {
   const roll = document.getElementById('roll');
-  var target = event.target;
+  const maxSquare = `000${size * size - 1}`.slice(-3);
+  const lastSq = document.getElementById(`sq${maxSquare}`);
+  let target = event.target;
+
   if (dropTargets.indexOf(target.id) < 0) {
     return;
   }
@@ -310,7 +313,14 @@ function dropPiece(event) {
   }
 
   dragged = null;
-  moveOwl();
+  fought = moveOwl();
+
+  if (lastSq === target && !fought) {
+    const wins = localStorage.getItem('gamesWon') ?? 0;
+
+    localStorage.setItem('gamesWon', Number(wins) + 1);
+    alert('🏆');
+  }
 }
 
 function moveOwl() {
