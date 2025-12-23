@@ -332,13 +332,15 @@ function moveOwl() {
   const row = jumpTo.parentElement;
 
   owlCell = jumpTo.id;
-  jumpSprite('owl', document.getElementById(from), jumpTo);
+  const fought = jumpSprite('owl', document.getElementById(from), jumpTo);
 
   if (jumpTo.cellIndex > row.cells.length / 2 - 1) {
     owl.classList.add('reverse');
   } else {
     owl.classList.remove('reverse');
   }
+
+  return fought;
 }
 
 function fight() {
@@ -420,7 +422,7 @@ function jumpSprite(spriteName, fromCell, toCell, after = null, duration = 1000)
   }
 
   requestAnimationFrame(animate);
-  fight();
+  return fight();
 }
 
 function changeBoardSize(widget) {
