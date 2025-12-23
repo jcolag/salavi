@@ -344,12 +344,15 @@ function moveOwl() {
 function fight() {
   const player = document.getElementById('player-1');
   const home = document.getElementById('sq000');
+  const fights = localStorage.getItem('owlFights') ?? 0;
 
   if (player.parentElement.id === owlCell) {
     player.innerHTML = pow;
     player.classList.add('spin');
     player.parentElement.removeChild(player);
     home.appendChild(player);
+    localStorage.setItem('owlFights', Number(fights) + 1);
+    return true;
   }
 }
 
