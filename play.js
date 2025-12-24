@@ -261,6 +261,7 @@ function rollDie() {
   const id = 'sq' + `000${square + roll}`.slice(-3);
   const target = document.getElementById(id);
   const player = document.getElementById('player-1');
+  const moved = localStorage.getItem('tilesMoved') ?? 0;
 
   player.innerHTML = piece;
   player.classList.remove('spin');
@@ -274,6 +275,7 @@ function rollDie() {
     button.disabled = true;
     dropTargets.push(id);
     target.classList.add('highlight-box');
+    localStorage.setItem('tilesMoved', Number(moved) + roll);
   } else {
     moveOwl();
   }
