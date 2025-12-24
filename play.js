@@ -10,7 +10,7 @@ const arrowMap = [];
 let dragged = null;
 let owlCell = 0;
 let piece = null;
-let size;
+let size, oldSize;
 
 let flipper = setInterval(
   () => {
@@ -429,14 +429,12 @@ function jumpSprite(spriteName, fromCell, toCell, after = null, duration = 1000)
 
 function changeBoardSize(widget) {
   const board = document.getElementById('game-board');
-  const oldSize = size;
-
+ 
+  oldSize = size;
   size = widget.value;
   localStorage.setItem('salaviBoardSize', size);
-  if (oldSize !== size) {
-    while (board.firstChild) {
-      board.removeChild(board.lastChild);
-    }
+}
+
 function populateSingleStat(id, name) {
   const el = document.getElementById(id);
   const value = localStorage.getItem(name) ?? 0;
