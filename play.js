@@ -437,8 +437,15 @@ function changeBoardSize(widget) {
     while (board.firstChild) {
       board.removeChild(board.lastChild);
     }
+function populateSingleStat(id, name) {
+  const el = document.getElementById(id);
+  const value = localStorage.getItem(name) ?? 0;
+  const text = document.createTextNode(value);
 
-    createBoard();
+  removeAllChildren(el);
+  el.appendChild(text);
+}
+
     startGame();
   }
 }
