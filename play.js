@@ -444,6 +444,9 @@ function populateSingleStat(id, name) {
   el.appendChild(text);
 }
 
-    startGame();
-  }
+function populateStats() {
+  populateSingleStat('games-played', 'gamesPlayed');
+  populateSingleStat('games-won', 'gamesWon');
+  populateSingleStat('tiles-moved', 'tilesMoved');
+  populateSingleStat('owl-fights', 'owlFights');
 }
