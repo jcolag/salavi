@@ -37,8 +37,10 @@ window.addEventListener('load', (e) => {
 
   if (!size) {
     size = 4;
+    localStorage.setItem('salaviBoardSize', size);
   }
 
+  oldSize = size;
   openAbout.addEventListener(
     'click', () => {
     game.classList.add('blur');
@@ -63,7 +65,6 @@ window.addEventListener('load', (e) => {
 
     game.classList.remove('blur');
     config.close();
-    size = localStorage.getItem('salaviBoardSize');
     if (oldSize !== size) {
       removeAllChildren(board);
       createBoard();
