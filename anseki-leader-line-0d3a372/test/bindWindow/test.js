@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
+
 /* global LeaderLine:false */
 
 window.addEventListener('load', function() {

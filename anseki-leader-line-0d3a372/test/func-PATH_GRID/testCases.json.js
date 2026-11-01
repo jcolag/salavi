@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
+
 /* exported testCases */
 
 // replace `\` to `\\`

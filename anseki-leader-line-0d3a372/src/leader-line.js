@@ -1,10 +1,7 @@
-/*
- * LeaderLine
- * https://anseki.github.io/leader-line/
- *
- * Copyright (c) 2021 anseki
- * Licensed under the MIT license.
- */
+// Copyright (c) 2021 anseki
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
 
 /* exported LeaderLine */
 /* eslint no-underscore-dangle: [2, {"allow": ["_id"]}] */

@@ -1,2 +1,6 @@
+# SPDX-FileCopyrightText: 2016 anseki
+#
+# SPDX-License-Identifier: MIT
+
 .vscode
 node_modules

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
 
 (function() {
   'use strict';

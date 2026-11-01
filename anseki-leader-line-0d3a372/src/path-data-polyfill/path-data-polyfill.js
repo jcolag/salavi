@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
+
 /*
   Customized path-data-polyfill.js
     https://github.com/jarek-foksa/path-data-polyfill.js 2016.06.22

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
+
 /* global forceReflow:false */
 /* exported guideView, pathData2BBox */
 /* eslint no-underscore-dangle: [2, {"allow": ["_id"]}] */

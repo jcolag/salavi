@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016 anseki
+//
+// SPDX-License-Identifier: MIT
+
 /* eslint-env jasmine */
 /* global getSource:false, testCases:false */
 
